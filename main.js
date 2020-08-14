@@ -3,6 +3,14 @@
  ********************/
 
 
+const getTodoName = todo => todo.text;
+
+const getPriority = todo => todo.priority;
+
+const isComplete = todo => todo.complete;
+
+const isHighPriority =  todo =>  (todo.priority>1) ? true: false;
+
 
 
 
@@ -16,11 +24,54 @@
  ***********************/
 
 
+const names = todos => todos.map(getTodoName);
 
+const priorities = todos => todos.map(getPriority);
 
+const namesAndPriorities = function (todos){
+  let newArray = [];
 
+  for(let i = 0;i < todos.length; i++){
+    (todos[i].priority === 1) ? newArray.push(todos[i].text + ' - Low'): newArray.push(todos[i].text + ' - High')
+  }
+  return newArray
+}
 
+const justNotComplete = function (todos){
+  let newArray = [];
 
+  for(let i = 0;i < todos.length; i++)
+    (todos[i].complete === false) ? newArray.push(todos[i]): 'finish'
+  
+
+return newArray
+}
+
+const justComplete = function (todos){
+  let newArray = [];
+
+  for(let i = 0;i < todos.length; i++)
+    (todos[i].complete === true) ? newArray.push(todos[i]): 'finish'
+  
+
+return newArray
+}
+
+const priority2Only = function (todos){
+  let newArray = [];
+
+  for(let i = 0;i < todos.length; i++)
+    (todos[i].priority === 2) ? newArray.push(todos[i]): 'finish'
+return newArray
+}
+
+const priority1Only = function (todos){
+  let newArray = [];
+
+  for(let i = 0;i < todos.length; i++)
+    (todos[i].priority === 1) ? newArray.push(todos[i]): 'finish'
+return newArray
+}
 
 
 
